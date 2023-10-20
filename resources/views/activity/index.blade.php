@@ -9,7 +9,29 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    User Activity
+                    <div class="d-flex justify-content-between">
+                        <h5>Users Activities</h5>
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Activity Group</th>
+                            <th>Description</th>
+                            <th>Activity Performed By</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($activities as $activity)
+                            <tr>
+                                <td>{{ date('d F Y H:i', strtotime($activity->created_at)) }}</td>
+                                <td>{{ $activity->log_name }}</td>
+                                <td>{{ $activity->description }}</td>
+                                <td>{{ $activity->causer?->name }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
