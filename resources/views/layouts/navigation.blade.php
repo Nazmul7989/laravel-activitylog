@@ -12,8 +12,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->is('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('users.index')" :active="request()->is('users')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('activities.index')" :active="request()->is('activities')">
+                        {{ __('Users Activity') }}
                     </x-nav-link>
                 </div>
             </div>
